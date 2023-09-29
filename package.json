@@ -1,0 +1,19 @@
+{
+  "name": "webcomponents",
+  "version": "1.0.0",
+  "description": "An experiment in webcomponents",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "webcomponents",
+    "experiment"
+  ],
+  "author": "Timo Schinkel",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.7.1",
+    "typescript": "^5.2.2"
+  }
+}
