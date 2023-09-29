@@ -5,10 +5,17 @@
     <meta charset="utf-8">
     <title>Webcomponents</title>
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+
+    <!-- load webcomponents -->
+    <script type="module" src="thumbs.js"></script>
   </head>
   <body>
     <h1>Webcomponents</h1>
     <p>This is a webcomponents experiment. Read more about about the background and the technologies used as <a href="https://github.com/timoschinkel/webcomponents">https://github.com/timoschinkel/webcomponents</a>.</p>
+
+    <h2>Thumbs</h2>
+    <p>A simple webcomponent that contains scoped functionality. In this specific case you can add the <code>thumbs-component</code> to a page and you will immediately get a thumb up - thumb down functionality. Within the component we can gather information and send a request to a backend environment.</p>
+    <thumbs-component></thumbs-component>
 
     <a href="https://github.com/timoschinkel/webcomponents" class="github-corner" rel="noopener" aria-label="View the source of this page at Github">
       <svg width="80" height="80" viewBox="0 0 250 250" style="position: absolute; top: 0; border: 0; right: 0;" alt="Github logo">
