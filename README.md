@@ -8,5 +8,24 @@ An experiment in webcomponents. In this repository I want to answer the followin
 ## Development
 Webcomponents are a JavaScript specification, so the main language for this repository is JavaScript. Usage of [nvm](https://github.com/nvm-sh/nvm) is advised. I personally prefer TypeScript, and therefore the webcomponents are written using TypeScript.
 
+To run the project locally, you install the correct version of NodeJS:
+
+```bash
+nvm i
+```
+
+You install all dependencies:
+
+```bash
+npm ci
+```
+
+And you start the development server:
+
+```bash
+npm run start
+```
+
 ## Resources
 - https://www.webcomponents.org/
+- https://css-tricks.com/styling-a-web-component/ - A great overview about styling a webcomponent

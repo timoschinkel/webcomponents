@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
-    "start": "web-dev-server --node-resolve --open --watch --app-index dist/index.html"
+    "tsc": "tsc",
+    "watch": "tsc --watch",
+    "start": "tsc && web-dev-server --node-resolve --open --watch --app-index dist/index.html"
   },
   "keywords": [
     "webcomponents",
