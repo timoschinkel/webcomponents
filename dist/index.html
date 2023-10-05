@@ -10,6 +10,7 @@
     <script type="module" src="js/thumbs.js"></script>
     <script type="module" src="js/thumbs-with-attribute.js"></script>
     <script type="module" src="js/thumbs-with-slots.js"></script>
+    <script type="module" src="js/component-preview.js"></script>
   </head>
   <body>
     <h1>Webcomponents</h1>
@@ -17,20 +18,26 @@
 
     <h2>Thumbs</h2>
     <p>A simple webcomponent that contains scoped functionality. In this specific case you can add the <code>thumbs-component</code> to a page and you will immediately get a thumb up - thumb down functionality.</p>
-    <thumbs-component></thumbs-component>
+    <component-preview url="https://github.com/timoschinkel/webcomponents/blob/main/src/thumbs.ts">
+        <thumbs-component></thumbs-component>
+    </component-preview>
 
     <h3>Attributes</h3>
     <p>Within the component we can gather information and send a request to a backend environment. In order to indicate where to send the data to we can add an attribute <code>url</code></p>
-    <thumbs-with-attribute url="https://github.com/timoschinkel/webcomponents"></thumbs-with-attribute>
+    <component-preview url="https://github.com/timoschinkel/webcomponents/blob/main/src/thumbs-with-attribute.ts">
+        <thumbs-with-attribute url="https://github.com/timoschinkel/webcomponents"></thumbs-with-attribute>
+    </component-preview>
 
     <h3>Slots</h3>
     <p>Attributes are great for when you want to attach properties that are required for logic to a component. Sometimes however you want to communicate some more information, maybe dynamic content with HTML markup. For that you can use <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots">slots</a>. For our thumb up - thumb down component we might want to be able to specify the success message.</p>
     <p>An interesting side effect of using slots, is that slots use any CSS from the page's scope. That means that the text color is coming from the page, and not from the webcomponent.</p>
-    <thumbs-with-slots>
-        <div slot="success-upvote" style="color: green;">Oh, wow! Thank you so much for submitting an upvote!</div>
-        <div slot="success-downvote" style="color: yellow;">Oh, I must admit I am a little bit disappointed...</div>
-        <div slot="failure" style="color: red;">I'm sorry, we were unable to submit your feedback</div>
-    </thumbs-with-slots>
+    <component-preview url="https://github.com/timoschinkel/webcomponents/blob/main/src/thumbs-with-slots.ts">
+<thumbs-with-slots>
+    <div slot="success-upvote" style="color: green;">Oh, wow! Thank you so much for submitting an upvote!</div>
+    <div slot="success-downvote" style="color: coral;">Oh, I must admit I am a little bit disappointed...</div>
+    <div slot="failure" style="color: red;">I'm sorry, we were unable to submit your feedback</div>
+</thumbs-with-slots>
+    </component-preview>
 
     <a href="https://github.com/timoschinkel/webcomponents" class="github-corner" rel="noopener" aria-label="View the source of this page at Github">
       <svg width="80" height="80" viewBox="0 0 250 250" style="position: absolute; top: 0; border: 0; right: 0;" alt="Github logo">
