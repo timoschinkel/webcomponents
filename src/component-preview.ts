@@ -22,7 +22,7 @@ template.innerHTML = `
     .grid > * {
         margin: 0.5em;
         max-width: 100%;
-        overflow-x: scroll;
+        overflow: hidden;
     }
 
     #code {
@@ -30,12 +30,14 @@ template.innerHTML = `
         color: #fff;
         height: calc(100% - 3rem);
         margin: 0;
+        overflow-x: auto;
         padding: 1rem;
     }
 
     #preview {
         background: #fff;
         height: calc(100% - 3rem);
+        overflow-x: auto;
         padding: 1rem;
     }
 
