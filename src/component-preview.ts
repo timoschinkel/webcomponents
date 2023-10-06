@@ -19,7 +19,11 @@ template.innerHTML = `
 
     .hidden { display: none; }
 
-    .grid > * { margin: 0.5em; }
+    .grid > * {
+        margin: 0.5em;
+        max-width: 100%;
+        overflow-x: scroll;
+    }
 
     #code {
         background: #1d1e22;
