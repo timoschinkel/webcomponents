@@ -56,7 +56,9 @@ template.innerHTML = `
     </div>
     <div>
         <h3>Result</h3>
-        <div id="preview"></div>
+        <div id="preview">
+            <slot></slot>
+        </div>
     </div>
 </div>
 <div id="link" class="hidden"><a href="#">Source code</a></div>
@@ -66,41 +68,27 @@ window.customElements.define('component-preview', class ComponentPreview extends
     constructor() {
         super();
 
-        const html = this.innerHTML;
-        const url = this.getAttribute('url');
-
         // Create shadow DOM based on template
         this.attachShadow({ mode: 'open'})
             .append(template.content.cloneNode(true));
+    }
 
-        this.shadowRoot.querySelector('#preview').innerHTML = html;
-        this.shadowRoot.querySelector('#code').innerHTML = this.escape(html.trim());
+    public connectedCallback() {
+        this.shadowRoot.querySelector('slot').addEventListener('slotchange', () => {
+            const html = (this.shadowRoot.querySelector('slot') as HTMLSlotElement).assignedNodes().reduce(
+                (carry, current: Element | Text) => current instanceof Element
+                    ? `${carry} ${current.outerHTML}`
+                    : `${carry} ${current.textContent}`,
+                ''
+            );
+            this.shadowRoot.querySelector('#code').innerHTML = this.escape(html.trim());
+        });
 
+        const url = this.getAttribute('url');
         if (url) {
             this.shadowRoot.querySelector('#link > a').setAttribute('href', url);
             this.shadowRoot.querySelector('#link').classList.remove('hidden');
         }
-    }
-
-    public connectedCallback() {
-        // called when the component is added to the DOM
-        this.shadowRoot.querySelectorAll('ul.nav > li span').forEach((element) => {
-            element.addEventListener('click', (event) => {
-                if (element.classList.contains('active')) return;
-
-                // deactivate all others
-                this.shadowRoot.querySelectorAll('.container > .active').forEach((container) => {
-                    container.classList.remove('active');
-                });
-
-                this.shadowRoot.querySelectorAll(`.container > #${element.getAttribute('rel')}`).forEach((container) => {
-                    container.classList.add('active');
-                });
-
-                this.shadowRoot.querySelectorAll('ul.nav > li span.active').forEach((trigger) => trigger.classList.toggle('active'));
-                element.classList.toggle('active');
-            });
-        });
     }
 
     public disconnectedCallback() {
